@@ -1,0 +1,6 @@
+@Sapataria.ProdutoApi_HostAddress = http://localhost:5017
+
+GET {{Sapataria.ProdutoApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
