@@ -38,6 +38,24 @@ namespace Sapataria.ProdutoApi.Controllers
 
             return Created();
         }
+
+        [HttpPut("{id}")]
+        public ActionResult Put([FromBody] object produto, [FromRoute] int id)
+        {
+            //Logica de criar no banco de dados
+
+            //return StatusCode(StatusCodes.Status204NoContent);
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult Delete([FromRoute] int id)
+        {
+            //Logica de criar no banco de dados
+
+            //return StatusCode(StatusCodes.Status204NoContent);
+            return NoContent();
+        }
     }
 }
 
