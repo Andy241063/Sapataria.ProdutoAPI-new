@@ -1,9 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35913.81 d17.13
+VisualStudioVersion = 17.13.35913.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sapataria.ProdutoApi", "Sapataria.ProdutoApi\Sapataria.ProdutoApi.csproj", "{456F90E7-CCBA-48E9-A510-3030C485F579}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sapataria.ProdutoAPI.Domain", "Sapataria.ProdutoAPI.Domain\Sapataria.ProdutoAPI.Domain.csproj", "{835978A2-D4D8-4023-AD0B-37AF9AAD17DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sapataria.ProdutoAPI.Application", "Sapataria.ProdutoAPI.Application\Sapataria.ProdutoAPI.Application.csproj", "{AA2029FB-CEE0-457E-B400-2947EA59C46B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sapataria.ProdutoAPI.Infrastructure", "Sapataria.ProdutoAPI.Infrastructure\Sapataria.ProdutoAPI.Infrastructure.csproj", "{89B30E2D-C20B-4D0D-BC95-D2262598ED1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{456F90E7-CCBA-48E9-A510-3030C485F579}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{456F90E7-CCBA-48E9-A510-3030C485F579}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{456F90E7-CCBA-48E9-A510-3030C485F579}.Release|Any CPU.Build.0 = Release|Any CPU
+		{835978A2-D4D8-4023-AD0B-37AF9AAD17DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{835978A2-D4D8-4023-AD0B-37AF9AAD17DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{835978A2-D4D8-4023-AD0B-37AF9AAD17DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{835978A2-D4D8-4023-AD0B-37AF9AAD17DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA2029FB-CEE0-457E-B400-2947EA59C46B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA2029FB-CEE0-457E-B400-2947EA59C46B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA2029FB-CEE0-457E-B400-2947EA59C46B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA2029FB-CEE0-457E-B400-2947EA59C46B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89B30E2D-C20B-4D0D-BC95-D2262598ED1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89B30E2D-C20B-4D0D-BC95-D2262598ED1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89B30E2D-C20B-4D0D-BC95-D2262598ED1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89B30E2D-C20B-4D0D-BC95-D2262598ED1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

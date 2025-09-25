@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Sapataria.ProdutoAPI.Application;
 
 namespace Sapataria.ProdutoApi.Controllers
 {
@@ -7,28 +8,20 @@ namespace Sapataria.ProdutoApi.Controllers
     [ApiController]
     public class ProdutosController : ControllerBase
     {
-        //[HttpGet("{classificacao}/{nome}/{preco}")]
-        //public ActionResult<IEnumerable<object>> Get([FromRoute] string nome, [FromRoute] string classificacao, [FromRoute] decimal preco)
-        //{
-        //    IEnumerable<object> produtos = [
-        //        new { Nome = "Mocacim", Classificacao = "social"},
-        //        new { Nome = "tenis", Classificacao = "esporte"},
-        //    ];
+        private readonly IReadProductsUseCase _readProductsUseCase;
 
-        //    //return StatusCode(200, produtos);
-        //    return Ok(produtos);
-        //}
+        public ProdutosController(IReadProductsUseCase readProductsUseCase)
+        {
+            _readProductsUseCase = readProductsUseCase;
+        }
 
         [HttpGet]
         public ActionResult<IEnumerable<object>> Get(string? nome, string? classificacao, decimal? preco)
         {
-            IEnumerable<object> produtos = [
-                new { Nome = "Mocacim", Classificacao = "social"},
-                new { Nome = "tenis", Classificacao = "esporte"},
-            ];
+            IEnumerable<object> produtos = _readProductsUseCase.GetProducts();
 
-            //return StatusCode(200, produtos);
             return Ok(produtos);
+            //return StatusCode(200, produtos);
         }
 
         [HttpPost]
@@ -56,8 +49,17 @@ namespace Sapataria.ProdutoApi.Controllers
             //return StatusCode(StatusCodes.Status204NoContent);
             return NoContent();
         }
+
+        //[HttpGet("{classificacao}/{nome}/{preco}")]
+        //public ActionResult<IEnumerable<object>> Get([FromRoute] string nome, [FromRoute] string classificacao, [FromRoute] decimal preco)
+        //{
+        //    IEnumerable<object> produtos = [
+        //        new { Nome = "Mocacim", Classificacao = "social"},
+        //        new { Nome = "tenis", Classificacao = "esporte"},
+        //    ];
+
+        //    //return StatusCode(200, produtos);
+        //    return Ok(produtos);
+        //}
     }
 }
-
-// PUT
-// DELETE
