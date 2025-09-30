@@ -5,4 +5,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Sapataria.ProdutoAPI.Application\Sapataria.ProdutoAPI.Application.csproj" />
+    <ProjectReference Include="..\Sapataria.ProdutoAPI.Domain\Sapataria.ProdutoAPI.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

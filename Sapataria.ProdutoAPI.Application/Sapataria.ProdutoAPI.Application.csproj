@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure.Interfaces\" />
+    <ProjectReference Include="..\Sapataria.ProdutoAPI.Domain\Sapataria.ProdutoAPI.Domain.csproj" />
   </ItemGroup>
 
 </Project>
