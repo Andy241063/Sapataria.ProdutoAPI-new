@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Sapataria.ProdutoAPI.Application;
+using Sapataria.ProdutoAPI.Domain.Entities;
 
 namespace Sapataria.ProdutoApi.Controllers
 {
@@ -16,9 +17,9 @@ namespace Sapataria.ProdutoApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<object>> Get(string? nome, string? classificacao, decimal? preco)
+        public ActionResult<IEnumerable<Produto>> Get(string? nome, string? classificacao, decimal? preco)
         {
-            IEnumerable<object> produtos = _readProductsUseCase.GetProducts();
+            var produtos = _readProductsUseCase.GetProducts();
 
             return Ok(produtos);
             //return StatusCode(200, produtos);

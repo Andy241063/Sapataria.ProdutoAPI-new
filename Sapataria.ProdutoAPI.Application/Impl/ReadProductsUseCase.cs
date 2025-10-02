@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Sapataria.ProdutoAPI.Application.Infrastructure.Interfaces;
+using Sapataria.ProdutoAPI.Domain.Entities;
 
 namespace Sapataria.ProdutoAPI.Application.Impl
 {
@@ -12,7 +13,7 @@ namespace Sapataria.ProdutoAPI.Application.Impl
             _productRepository = productRepository;
         }
 
-        public IEnumerable<object> GetProducts()
+        public IEnumerable<Produto> GetProducts()
         {
             return _productRepository.Get();
         }

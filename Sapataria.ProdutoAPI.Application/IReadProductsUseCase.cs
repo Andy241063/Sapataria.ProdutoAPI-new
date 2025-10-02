@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using Sapataria.ProdutoAPI.Domain.Entities;
 
 namespace Sapataria.ProdutoAPI.Application
 {
     public interface IReadProductsUseCase
     {
-        IEnumerable<object> GetProducts();
+        IEnumerable<Produto> GetProducts();
     }
 }

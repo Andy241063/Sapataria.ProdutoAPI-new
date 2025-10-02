@@ -6,9 +6,9 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
 {
     internal class ProductRepository : IProductRepository
     {
-        IEnumerable<Produto> IProductRepository.Get()
+        public IEnumerable<Produto> Get()
         {
-            throw new System.NotImplementedException();
+            return new List<Produto>();
         }
 
         public void Save(Produto produto)
