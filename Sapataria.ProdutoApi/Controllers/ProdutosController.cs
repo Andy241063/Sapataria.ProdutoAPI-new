@@ -40,9 +40,10 @@ namespace Sapataria.ProdutoApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult Put([FromBody] object produto, [FromRoute] int id)
+        public ActionResult Put([FromBody] Produto produto, [FromRoute] int id)
         {
             //Logica de criar no banco de dados
+            _registerProductsUseCase.Update(produto, id);
 
             //return StatusCode(StatusCodes.Status204NoContent);
             return NoContent();
@@ -52,6 +53,7 @@ namespace Sapataria.ProdutoApi.Controllers
         public ActionResult Delete([FromRoute] int id)
         {
             //Logica de criar no banco de dados
+            _deleteProductsUseCase.Delete(id);
 
             //return StatusCode(StatusCodes.Status204NoContent);
             return NoContent();
