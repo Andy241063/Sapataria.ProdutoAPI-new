@@ -10,10 +10,15 @@ namespace Sapataria.ProdutoApi.Controllers
     public class ProdutosController : ControllerBase
     {
         private readonly IReadProductsUseCase _readProductsUseCase;
+        private readonly IRegisterProductsUseCase _registerProductsUseCase;
+        private readonly IDeleteProductsUseCase _deleteProductsUseCase;
 
-        public ProdutosController(IReadProductsUseCase readProductsUseCase)
+        public ProdutosController(IReadProductsUseCase readProductsUseCase, IRegisterProductsUseCase registerProductsUseCase,
+            IDeleteProductsUseCase deleteProductsUseCase)
         {
             _readProductsUseCase = readProductsUseCase;
+            _registerProductsUseCase = registerProductsUseCase;
+            _deleteProductsUseCase = deleteProductsUseCase;
         }
 
         [HttpGet]
@@ -26,9 +31,10 @@ namespace Sapataria.ProdutoApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post([FromBody] object produto)
+        public ActionResult Post([FromBody] Produto produto)
         {
             //Logica de criar no banco de dados
+            _registerProductsUseCase.Save(produto);
 
             return Created();
         }

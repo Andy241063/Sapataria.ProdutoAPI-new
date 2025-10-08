@@ -4,25 +4,23 @@ using Sapataria.ProdutoAPI.Domain.Entities;
 
 namespace Sapataria.ProdutoAPI.Application.Impl
 {
-    internal class ResisterProductsUseCase : IResisterProductsUseCase
+    internal class RegisterProductsUseCase : IRegisterProductsUseCase
     {
         private readonly IProductRepository _productRepository;
 
-        public ResisterProductsUseCase(IProductRepository productRepository)
+        public RegisterProductsUseCase(IProductRepository productRepository)
         {
             _productRepository = productRepository;
         }
 
-        public void SetProducts(Produto produto)
+        public void Save(Produto produto)
         {
             _productRepository.Save(produto);
         }
 
-        public IEnumerable<Produto> SetProducts()
+        public void Update(Produto produto, int id)
         {
-            throw new System.NotImplementedException();
+            _productRepository.Update(produto, id);
         }
-    }
-
     }
 }
