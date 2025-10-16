@@ -13,17 +13,14 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
 
         public void Save(Produto produto)
         {
-            throw new System.NotImplementedException();
         }
 
         public void Update(Produto produto, int id)
         {
-            throw new System.NotImplementedException();
         }
 
         public void Delete(int id)
         {
-            throw new System.NotImplementedException();
         }
     }
 }
