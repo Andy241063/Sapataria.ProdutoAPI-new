@@ -15,6 +15,9 @@ namespace Sapataria.ProdutoAPI.Application.Impl
 
         public IEnumerable<Produto> GetProducts()
         {
+            _productRepository.Save(new Produto { Name = "prod1" });
+            _productRepository.Save(new Produto { Name = "prod2" });
+
             return _productRepository.Get();
         }
     }

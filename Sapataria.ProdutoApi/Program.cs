@@ -1,12 +1,12 @@
-using Sapataria.ProdutoAPI.Application.Infrastructure.Interfaces;
 using Sapataria.ProdutoAPI.Infrastructure;
-using Sapataria.ProdutoAPI.Infrastructure.Impl;
+using Sapataria.ProdutoAPI.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddInfrastructureDependencies();
+builder.Services.AddApplicationDependencies();
 
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
