@@ -19,66 +19,73 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
 
         public IEnumerable<Produto> Get()
         {
-            using MySqlConnection connection = new MySqlConnection(connectionString);
+            using var connection = new MySqlConnection(connectionString);
 
-            try
+            connection.Open();
+
+            string query = "select name from produto";
+
+            using var command = new MySqlCommand(query, connection);
+            
+            using var reader = command.ExecuteReader();
+
+            List<Produto> produtoList = new List<Produto>();
+
+            while (reader.Read())
             {
-                connection.Open();
-                Console.WriteLine("Conexão bem-sucedida!");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Erro ao conectar: " + ex.Message);
+                var produto = new Produto { Name = reader.GetString("name") };
+
+                produtoList.Add(produto);
             }
 
-            return _produtos;
+            return produtoList;
         }
 
         public void Save(Produto produto)
         {
-            using MySqlConnection connection = new MySqlConnection(connectionString);
+            //using MySqlConnection connection = new MySqlConnection(connectionString);
 
-            try
-            {
-                connection.Open();
-                Console.WriteLine("Conexão bem-sucedida!");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Erro ao conectar: " + ex.Message);
-            }
+            //try
+            //{
+            //    connection.Open();
+            //    Console.WriteLine("Conexão bem-sucedida!");
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine("Erro ao conectar: " + ex.Message);
+            //}
 
             _produtos.Add(produto);
         }
 
         public void Update(Produto produto, int id)
         {
-            using MySqlConnection connection = new MySqlConnection(connectionString);
+            //using MySqlConnection connection = new MySqlConnection(connectionString);
 
-            try
-            {
-                connection.Open();
-                Console.WriteLine("Conexão bem-sucedida!");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Erro ao conectar: " + ex.Message);
-            }
+            //try
+            //{
+            //    connection.Open();
+            //    Console.WriteLine("Conexão bem-sucedida!");
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine("Erro ao conectar: " + ex.Message);
+            //}
         }
 
         public void Delete(int id)
         {
-            using MySqlConnection connection = new MySqlConnection(connectionString);
+            //using MySqlConnection connection = new MySqlConnection(connectionString);
 
-            try
-            {
-                connection.Open();
-                Console.WriteLine("Conexão bem-sucedida!");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Erro ao conectar: " + ex.Message);
-            }
+            //try
+            //{
+            //    connection.Open();
+            //    Console.WriteLine("Conexão bem-sucedida!");
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine("Erro ao conectar: " + ex.Message);
+            //}
         }
     }
 }

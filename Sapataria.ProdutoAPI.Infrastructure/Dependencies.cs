@@ -8,7 +8,7 @@ namespace Sapataria.ProdutoAPI.Infrastructure
     {
         public static void AddInfrastructureDependencies(this IServiceCollection services)
         {
-            services.AddSingleton<IProductRepository, ProductRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
         }
     }
 }

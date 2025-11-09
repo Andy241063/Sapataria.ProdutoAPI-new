@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Sapataria.ProdutoAPI.Application.Infrastructure.Interfaces;
 using Sapataria.ProdutoAPI.Domain.Entities;
 
@@ -16,7 +17,8 @@ namespace Sapataria.ProdutoAPI.Application.Impl
         public IEnumerable<Produto> GetProducts()
         {
             _productRepository.Save(new Produto { Name = "prod1" });
-            _productRepository.Save(new Produto { Name = "prod2" });
+
+            throw new Exception("Erro forcado");
 
             return _productRepository.Get();
         }
