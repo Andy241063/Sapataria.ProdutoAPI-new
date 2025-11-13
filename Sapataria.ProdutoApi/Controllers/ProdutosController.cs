@@ -22,8 +22,8 @@ namespace Sapataria.ProdutoApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Produto>> Get(string Produto_id, string Nomeproduto, decimal Valorproduto,
-            string marca, string modelo)
+        public ActionResult<IEnumerable<Produto>> Get(string? produtoId, string? nomeProduto,
+            string? marca, string? modelo)
         {
             var produtos = _readProductsUseCase.GetProducts();
 
@@ -40,21 +40,21 @@ namespace Sapataria.ProdutoApi.Controllers
             return Created();
         }
 
-        [HttpPut("{id}")]
-        public ActionResult Put([FromBody] Produto produto, [FromRoute] int id)
+        [HttpPut("{produtoId}")]
+        public ActionResult Put([FromBody] Produto produto, [FromRoute] string produtoId)
         {
             //Logica de criar no banco de dados
-            _registerProductsUseCase.Update(produto, id);
+            _registerProductsUseCase.Update(produto, produtoId);
 
             //return StatusCode(StatusCodes.Status204NoContent);
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
-        public ActionResult Delete([FromRoute] int id)
+        [HttpDelete("{produtoId}")]
+        public ActionResult Delete([FromRoute] string produtoId)
         {
             //Logica de criar no banco de dados
-            _deleteProductsUseCase.Delete(id);
+            _deleteProductsUseCase.Delete(produtoId);
 
             //return StatusCode(StatusCodes.Status204NoContent);
             return NoContent();

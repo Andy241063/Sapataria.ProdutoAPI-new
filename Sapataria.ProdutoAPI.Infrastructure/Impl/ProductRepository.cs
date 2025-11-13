@@ -17,8 +17,9 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
             _produtos = new List<Produto>();
         }
 
-        public IEnumerable<Produto> Get() // Essa linha ta criando uma classe com um enumeravel de produto
-                                          // e um metodo Get que retorna esse enumeravel, é isso ? 
+        // Essa linha ta criando uma classe com um enumeravel de produto
+        // e um metodo Get que retorna esse enumeravel, é isso ? 
+        public IEnumerable<Produto> Get() 
         {
             using var connection = new MySqlConnection(connectionString);
 
@@ -66,7 +67,7 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
             _produtos.Add(produto);
         }
 
-        public void Update(Produto produto, int id)
+        public void Update(Produto produto, string produtoId)
         {
             //using MySqlConnection connection = new MySqlConnection(connectionString);
 
@@ -81,7 +82,7 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
             //}
         }
 
-        public void Delete(int id)
+        public void Delete(string produtoId)
         {
             //using MySqlConnection connection = new MySqlConnection(connectionString);
 

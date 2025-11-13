@@ -12,9 +12,9 @@ namespace Sapataria.ProdutoAPI.Application.Impl
             _productRepository = productRepository;
         }
 
-        public void Delete(BerOctetStringGenerator Protuto_id)
+        public void Delete(string produtoId)
         {
-            _productRepository.Delete(Protuto_id);
+            _productRepository.Delete(produtoId);
         }
     }
 }
