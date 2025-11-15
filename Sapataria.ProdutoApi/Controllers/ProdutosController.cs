@@ -22,7 +22,7 @@ namespace Sapataria.ProdutoApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Produto>> Get(string? nome, string? classificacao, decimal? preco)
+        public ActionResult<IEnumerable<Produto>> Get(string produto_id, string? nome, decimal? valor, string marca, string modelo)
         {
             var produtos = _readProductsUseCase.GetProducts();
 

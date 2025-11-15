@@ -17,13 +17,14 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
             _produtos = new List<Produto>();
         }
 
-        public IEnumerable<Produto> Get()
+        public IEnumerable<Produto> Get() // Essa linha ta criando uma classe com um enumeravel de produto
+                                          // e um metodo Get que retorna esse enumeravel, é isso ? 
         {
             using var connection = new MySqlConnection(connectionString);
 
             connection.Open();
 
-            string query = "select name from produto";
+            string query = "select product_id, nome, valor, marca, modelo from produto";
 
             using var command = new MySqlCommand(query, connection);
             
@@ -33,7 +34,11 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
 
             while (reader.Read())
             {
-                var produto = new Produto { Name = reader.GetString("name") };
+                var produto = new Produto {Product_Id = reader.GetString("produto_id"),
+                                           Name = reader.GetString("nome"),
+                                           Value = reader.GetInt32("valor"),
+                                           Brand = reader.GetString("marca"),
+                                           Model = reader.GetString("modelo")};
 
                 produtoList.Add(produto);
             }
