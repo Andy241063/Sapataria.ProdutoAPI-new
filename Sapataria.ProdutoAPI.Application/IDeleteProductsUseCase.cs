@@ -2,6 +2,6 @@
 {
     public interface IDeleteProductsUseCase
     {
-        void Delete(int id);
+        void Delete(string Produto_id);
     }
 }

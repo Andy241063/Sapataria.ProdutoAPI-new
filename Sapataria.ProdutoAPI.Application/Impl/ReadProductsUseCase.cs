@@ -16,9 +16,7 @@ namespace Sapataria.ProdutoAPI.Application.Impl
 
         public IEnumerable<Produto> GetProducts()
         {
-            _productRepository.Save(new Produto { Name = "nome" });
-
-            throw new Exception("Erro forcado");
+            _productRepository.Get();
 
             return _productRepository.Get();
         }

@@ -2,11 +2,17 @@
 {
     public class Produto
     {
-        public string ?Product_Id { get; set; }
-        public string ?Name { get; set; }
-        public int Value { get; set; }
-        public string ?Brand { get; set; }
-        public string ?Model { get; set; }
+        public string? Produto_id;
+        public string? Nomeproduto;
+        public decimal Valorproduto;
+        public string? Marcaproduto;
+        public string? Modeloproduto;
+
+        public string? produto_Id { get; set; }
+        public string? nome { get; set; }
+        public decimal valor { get; set; }
+        public string? marca { get; set; }
+        public string? modelo { get; set; }
 
     }
 }

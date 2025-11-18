@@ -24,7 +24,7 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
 
             connection.Open();
 
-            string query = "select product_id, nome, valor, marca, modelo from produto";
+            string query = "select produto_id, nome, valor, marca, modelo from produto";
 
             using var command = new MySqlCommand(query, connection);
             
@@ -34,11 +34,14 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
 
             while (reader.Read())
             {
-                var produto = new Produto {Product_Id = reader.GetString("produto_id"),
-                                           Name = reader.GetString("nome"),
-                                           Value = reader.GetInt32("valor"),
-                                           Brand = reader.GetString("marca"),
-                                           Model = reader.GetString("modelo")};
+                var produto = new Produto
+                {
+                    produto_Id = reader.GetString("produto_id"),
+                    nome = reader.GetString("nome"),
+                    valor = reader.GetDecimal("valor"),
+                    marca = reader.GetString("marca"),
+                    modelo = reader.GetString("modelo")
+                };
 
                 produtoList.Add(produto);
             }
