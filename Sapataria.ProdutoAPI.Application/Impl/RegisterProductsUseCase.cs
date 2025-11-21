@@ -18,9 +18,9 @@ namespace Sapataria.ProdutoAPI.Application.Impl
             _productRepository.Save(produto);
         }
 
-        public void Update(Produto produto, string Produto_id)
+        public void Update(Produto produto, string id)
         {
-            _productRepository.Update(produto, Produto_id);
+            _productRepository.Update(produto, id);
         }
     }
 }

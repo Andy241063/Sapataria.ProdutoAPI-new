@@ -1,5 +1,4 @@
-﻿using Org.BouncyCastle.Asn1;
-using Sapataria.ProdutoAPI.Application.Infrastructure.Interfaces;
+﻿using Sapataria.ProdutoAPI.Application.Infrastructure.Interfaces;
 
 namespace Sapataria.ProdutoAPI.Application.Impl
 {
@@ -12,9 +11,9 @@ namespace Sapataria.ProdutoAPI.Application.Impl
             _productRepository = productRepository;
         }
 
-        public void Delete(BerOctetStringGenerator Protuto_id)
+        public void Delete(string id)
         {
-            _productRepository.Delete(Protuto_id);
+            _productRepository.Delete(id);
         }
     }
 }

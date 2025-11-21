@@ -17,14 +17,15 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
             _produtos = new List<Produto>();
         }
 
-        public IEnumerable<Produto> Get() // Essa linha ta criando uma classe com um enumeravel de produto
-                                          // e um metodo Get que retorna esse enumeravel, é isso ? 
+        // Essa linha ta criando uma classe com um enumeravel de produto
+        // e um metodo Get que retorna esse enumeravel, é isso ? 
+        public IEnumerable<Produto> Get() 
         {
             using var connection = new MySqlConnection(connectionString);
 
             connection.Open();
 
-            string query = "select produto_id, nome, valor, marca, modelo from produto";
+            string query = "select id, nome, valor, marca, modelo from produto";
 
             using var command = new MySqlCommand(query, connection);
             
@@ -36,7 +37,7 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
             {
                 var produto = new Produto
                 {
-                    produto_Id = reader.GetString("produto_id"),
+                    id = reader.GetString("produto_id"),
                     nome = reader.GetString("nome"),
                     valor = reader.GetDecimal("valor"),
                     marca = reader.GetString("marca"),
@@ -51,49 +52,12 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
 
         public void Save(Produto produto)
         {
-            //using MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //try
-            //{
-            //    connection.Open();
-            //    Console.WriteLine("Conexão bem-sucedida!");
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine("Erro ao conectar: " + ex.Message);
-            //}
-
             _produtos.Add(produto);
         }
 
-        public void Update(Produto produto, int id)
+        public void Update(Produto produto, string id)
         {
-            //using MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //try
-            //{
-            //    connection.Open();
-            //    Console.WriteLine("Conexão bem-sucedida!");
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine("Erro ao conectar: " + ex.Message);
-            //}
-        }
-
-        public void Delete(int id)
-        {
-            //using MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //try
-            //{
-            //    connection.Open();
-            //    Console.WriteLine("Conexão bem-sucedida!");
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine("Erro ao conectar: " + ex.Message);
-            //}
+            _produtos.Add(produto);
         }
     }
 }

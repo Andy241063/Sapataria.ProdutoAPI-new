@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Sapataria.ProdutoAPI.Application;
 using Sapataria.ProdutoAPI.Domain.Entities;
 
@@ -22,8 +21,7 @@ namespace Sapataria.ProdutoApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Produto>> Get(string Produto_id, string Nomeproduto, decimal Valorproduto,
-            string marca, string modelo)
+        public ActionResult<IEnumerable<Produto>> Get(string? id, string? nome, string? marca, string? modelo)
         {
             var produtos = _readProductsUseCase.GetProducts();
 
@@ -41,7 +39,7 @@ namespace Sapataria.ProdutoApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult Put([FromBody] Produto produto, [FromRoute] int id)
+        public ActionResult Put([FromBody] Produto produto, [FromRoute] string id)
         {
             //Logica de criar no banco de dados
             _registerProductsUseCase.Update(produto, id);
@@ -50,8 +48,8 @@ namespace Sapataria.ProdutoApi.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
-        public ActionResult Delete([FromRoute] int id)
+        [HttpDelete("{produtoId}")]
+        public ActionResult Delete([FromRoute] string id)
         {
             //Logica de criar no banco de dados
             _deleteProductsUseCase.Delete(id);
