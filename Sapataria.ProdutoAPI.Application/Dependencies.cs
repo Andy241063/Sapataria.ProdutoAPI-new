@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Sapataria.ProdutoAPI.Application.Infrastructure.Interfaces;
 using Sapataria.ProdutoAPI.Application.Impl;
 
 

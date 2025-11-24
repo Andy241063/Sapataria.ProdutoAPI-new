@@ -7,8 +7,7 @@ namespace Sapataria.ProdutoAPI.Application.Infrastructure.Interfaces
     {
         IEnumerable<Produto> Get();
         void Save(Produto produto);
-        void Update(Produto produto, string Produto_id);
-        void Delete(string Produto_id);
-        void Delete(object Produto_id);
+        void Update(Produto produto, string id);
+        void Delete(string id);
     }
 }

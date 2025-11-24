@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Sapataria.ProdutoAPI.Application.Infrastructure.Interfaces;
+﻿using Sapataria.ProdutoAPI.Application.Infrastructure.Interfaces;
 using Sapataria.ProdutoAPI.Domain.Entities;
 
 namespace Sapataria.ProdutoAPI.Application.Impl

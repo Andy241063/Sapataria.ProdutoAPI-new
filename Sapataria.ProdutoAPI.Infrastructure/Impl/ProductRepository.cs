@@ -1,6 +1,5 @@
 ﻿using Sapataria.ProdutoAPI.Application.Infrastructure.Interfaces;
 using Sapataria.ProdutoAPI.Domain.Entities;
-using System;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
@@ -37,7 +36,7 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
             {
                 var produto = new Produto
                 {
-                    id = reader.GetString("produto_id"),
+                    id = reader.GetString("id"),
                     nome = reader.GetString("nome"),
                     valor = reader.GetDecimal("valor"),
                     marca = reader.GetString("marca"),
