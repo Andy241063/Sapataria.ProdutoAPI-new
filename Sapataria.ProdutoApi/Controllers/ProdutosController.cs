@@ -20,13 +20,21 @@ namespace Sapataria.ProdutoApi.Controllers
             _deleteProductsUseCase = deleteProductsUseCase;
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public ActionResult<IEnumerable<Produto>> Get(string id)
         {
             var produtos = _readProductsUseCase.GetProducts(id);
 
             return Ok(produtos);
             //return StatusCode(200, produtos);
+        }
+
+        [HttpGet]
+        public ActionResult<IEnumerable<Produto>> GetAll()
+        {
+            //var produtos = _readProductsUseCase.GetAll();
+
+            return Ok(); // Adicionar produtos no retorno do Ok
         }
 
         [HttpPost]
