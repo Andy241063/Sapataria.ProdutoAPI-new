@@ -24,11 +24,14 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
 
             connection.Open();
 
-            string query = "select id, nome, valor, marca, modelo from produto";
+            string query = "select id, nome, valor, marca," +
+                           " modelo from produto where id = @id";
 
             using var command = new MySqlCommand(query, connection);
-            
-            using var reader = command.ExecuteReader();
+
+            command.Parameters.AddWithValue("@id", id);
+
+            using MySqlDataReader reader = command.ExecuteReader();
 
             List<Produto> produtoList = new List<Produto>();
 
@@ -106,6 +109,7 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
             string query = "DELETE FROM produto WHERE id = @id";
 
             using var command = new MySqlCommand(query, connection);
+
             command.Parameters.AddWithValue("@id", id);
 
             command.ExecuteNonQuery();
