@@ -18,20 +18,20 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
 
         // Essa linha ta criando uma classe com um enumeravel de produto
         // e um metodo Get que retorna esse enumeravel, é isso ? 
-        public IEnumerable<Produto> Get() 
+        public IEnumerable<Produto> Get(string id)
         {
             using var connection = new MySqlConnection(connectionString);
 
             connection.Open();
 
-            string query = "select id, nome, valor, marca," +
-                           " modelo from produto where id = @id";
+            string query = @"select id, nome, valor, marca,
+                           modelo from produto where id = @id";
 
             using var command = new MySqlCommand(query, connection);
 
             command.Parameters.AddWithValue("@id", id);
 
-            using MySqlDataReader reader = command.ExecuteReader();
+            using var reader = command.ExecuteReader();
 
             List<Produto> produtoList = new List<Produto>();
 
@@ -39,11 +39,11 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
             {
                 var produto = new Produto
                 {
-                    id = reader.GetString("id"),
-                    nome = reader.GetString("nome"),
-                    valor = reader.GetDecimal("valor"),
-                    marca = reader.GetString("marca"),
-                    modelo = reader.GetString("modelo")
+                    Id = reader.GetString("id"),
+                    Nome = reader.GetString("nome"),
+                    Valor = reader.GetDecimal("valor"),
+                    Marca = reader.GetString("marca"),
+                    Modelo = reader.GetString("modelo")
                 };
 
                 produtoList.Add(produto);
@@ -63,11 +63,11 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
 
             using var command = new MySqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@id", produto.id);
-            command.Parameters.AddWithValue("@nome", produto.nome);
-            command.Parameters.AddWithValue("@valor", produto.valor);
-            command.Parameters.AddWithValue("@marca", produto.marca);
-            command.Parameters.AddWithValue("@modelo", produto.modelo);
+            command.Parameters.AddWithValue("@id", produto.Id);
+            command.Parameters.AddWithValue("@nome", produto.Nome);
+            command.Parameters.AddWithValue("@valor", produto.Valor);
+            command.Parameters.AddWithValue("@marca", produto.Marca);
+            command.Parameters.AddWithValue("@modelo", produto.Modelo);
 
             command.ExecuteNonQuery();
         }
@@ -91,10 +91,10 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
             command.Parameters.AddWithValue("@id", id);
 
             // novos valores
-            command.Parameters.AddWithValue("@nome", produto.nome);
-            command.Parameters.AddWithValue("@valor", produto.valor);
-            command.Parameters.AddWithValue("@marca", produto.marca);
-            command.Parameters.AddWithValue("@modelo", produto.modelo);
+            command.Parameters.AddWithValue("@nome", produto.Nome);
+            command.Parameters.AddWithValue("@valor", produto.Valor);
+            command.Parameters.AddWithValue("@marca", produto.Marca);
+            command.Parameters.AddWithValue("@modelo", produto.Modelo);
 
             command.ExecuteNonQuery();
         }

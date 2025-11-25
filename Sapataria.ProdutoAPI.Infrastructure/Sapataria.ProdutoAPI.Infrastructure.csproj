@@ -15,8 +15,4 @@
     <ProjectReference Include="..\Sapataria.ProdutoAPI.Domain\Sapataria.ProdutoAPI.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Impl\Entities\" />
-  </ItemGroup>
-
 </Project>

@@ -5,6 +5,6 @@ namespace Sapataria.ProdutoAPI.Application
 {
     public interface IReadProductsUseCase
     {
-        IEnumerable<Produto> GetProducts();
+        IEnumerable<Produto> GetProducts(string id);
     }
 }

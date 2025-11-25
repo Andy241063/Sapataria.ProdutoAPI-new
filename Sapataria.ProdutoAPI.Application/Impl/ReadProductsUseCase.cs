@@ -13,11 +13,9 @@ namespace Sapataria.ProdutoAPI.Application.Impl
             _productRepository = productRepository;
         }
 
-        public IEnumerable<Produto> GetProducts()
+        public IEnumerable<Produto> GetProducts(string id)
         {
-            _productRepository.Get();
-
-            return _productRepository.Get();
+            return _productRepository.Get(id);
         }
     }
 }

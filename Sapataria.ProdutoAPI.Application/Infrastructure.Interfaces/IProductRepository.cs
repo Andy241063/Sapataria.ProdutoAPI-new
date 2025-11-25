@@ -5,7 +5,7 @@ namespace Sapataria.ProdutoAPI.Application.Infrastructure.Interfaces
 {
     public interface IProductRepository
     {
-        IEnumerable<Produto> Get();
+        IEnumerable<Produto> Get(string id);
         void Save(Produto produto);
         void Update(Produto produto, string id);
         void Delete(string id);

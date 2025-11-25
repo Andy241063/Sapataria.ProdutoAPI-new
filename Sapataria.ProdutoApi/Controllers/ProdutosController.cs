@@ -21,9 +21,9 @@ namespace Sapataria.ProdutoApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Produto>> Get(string? id, string? nome, string? marca, string? modelo)
+        public ActionResult<IEnumerable<Produto>> Get(string id)
         {
-            var produtos = _readProductsUseCase.GetProducts();
+            var produtos = _readProductsUseCase.GetProducts(id);
 
             return Ok(produtos);
             //return StatusCode(200, produtos);
