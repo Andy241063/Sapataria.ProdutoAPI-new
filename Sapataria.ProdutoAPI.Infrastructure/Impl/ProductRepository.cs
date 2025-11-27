@@ -2,6 +2,7 @@
 using Sapataria.ProdutoAPI.Domain.Entities;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
+using System;
 
 namespace Sapataria.ProdutoAPI.Infrastructure.Impl
 {
@@ -18,7 +19,7 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
 
         // Essa linha ta criando uma classe com um enumeravel de produto
         // e um metodo Get que retorna esse enumeravel, é isso ? 
-        public IEnumerable<Produto> Get(string id)
+        public Produto Get(string id)
         {
             using var connection = new MySqlConnection(connectionString);
 
@@ -35,7 +36,11 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
 
             var produto = new Produto
             {
-                Id = reader.GetString("id")
+                Id = reader.GetString("id"),
+                Nome = reader.GetString("nome"),
+                Valor = reader.GetDecimal("valor"),
+                Marca = reader.GetString("marca"),
+                Modelo = reader.GetString("modelo")
             };
 
             return produto;
@@ -58,18 +63,19 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
 
             List<Produto> produtoList = new List<Produto>();
 
-             while (reader.Read())
-             {
-                 var produto = new Produto
-                 {
-                     Id = reader.GetString("id"),
-                     Nome = reader.GetString("nome"),
-                     Valor = reader.GetDecimal("valor"),
-                     Marca = reader.GetString("marca"),
-                     Modelo = reader.GetString("modelo")
-                 };
+            while (reader.Read())
+            {
+                var produto = new Produto
+                {
+                    Id = reader.GetString("id"),
+                    Nome = reader.GetString("nome"),
+                    Valor = reader.GetDecimal("valor"),
+                    Marca = reader.GetString("marca"),
+                    Modelo = reader.GetString("modelo")
+                };
 
-            produtoList.Add(produto);
+                produtoList.Add(produto);
+            }
 
             return produtoList;
         }
