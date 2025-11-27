@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Sapataria.ProdutoAPI.Application.Infrastructure.Interfaces;
 using Sapataria.ProdutoAPI.Domain.Entities;
+using ZstdSharp.Unsafe;
 
 namespace Sapataria.ProdutoAPI.Application.Impl
 {
@@ -16,6 +17,11 @@ namespace Sapataria.ProdutoAPI.Application.Impl
         public IEnumerable<Produto> GetProducts(string id)
         {
             return _productRepository.Get(id);
+        }
+
+        public IEnumerable<Produto> GetAll()
+        {
+            return _productRepository.GetAll();
         }
     }
 }

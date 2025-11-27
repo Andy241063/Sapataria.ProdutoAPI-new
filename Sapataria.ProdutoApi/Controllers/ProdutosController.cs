@@ -32,9 +32,9 @@ namespace Sapataria.ProdutoApi.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Produto>> GetAll()
         {
-            //var produtos = _readProductsUseCase.GetAll();
+            var produtos = _readProductsUseCase.GetAll();
 
-            return Ok(); // Adicionar produtos no retorno do Ok
+            return Ok(produtos);
         }
 
         [HttpPost]

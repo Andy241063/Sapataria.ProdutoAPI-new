@@ -33,21 +33,43 @@ namespace Sapataria.ProdutoAPI.Infrastructure.Impl
 
             using var reader = command.ExecuteReader();
 
+            var produto = new Produto
+            {
+                Id = reader.GetString("id")
+            };
+
+            return produto;
+        }
+
+        public IEnumerable<Produto> GetAll()
+        {
+            using var connection = new MySqlConnection(connectionString);
+
+            connection.Open();
+
+            string query = @"select id, nome, valor, marca,
+                           modelo from produto";
+
+            using var command = new MySqlCommand(query, connection);
+
+            //command.Parameters.AddWithValue("@id", id);
+
+            using var reader = command.ExecuteReader();
+
             List<Produto> produtoList = new List<Produto>();
 
-            while (reader.Read())
-            {
-                var produto = new Produto
-                {
-                    Id = reader.GetString("id"),
-                    Nome = reader.GetString("nome"),
-                    Valor = reader.GetDecimal("valor"),
-                    Marca = reader.GetString("marca"),
-                    Modelo = reader.GetString("modelo")
-                };
+             while (reader.Read())
+             {
+                 var produto = new Produto
+                 {
+                     Id = reader.GetString("id"),
+                     Nome = reader.GetString("nome"),
+                     Valor = reader.GetDecimal("valor"),
+                     Marca = reader.GetString("marca"),
+                     Modelo = reader.GetString("modelo")
+                 };
 
-                produtoList.Add(produto);
-            }
+            produtoList.Add(produto);
 
             return produtoList;
         }
